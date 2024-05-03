@@ -1,0 +1,200 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{parskip}
+\usepackage{pgfplots}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+
+\pgfplotsset{compat=1.8}
+\usepgfplotslibrary{statistics}
+
+\usetikzlibrary{automata,positioning}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{compat=1.17}
+\newcounter{ihor}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\ (\hmwkClassID)\hmwkTitle}
+% \rhead{\firstxmark}
+\rhead{\hmwkClassInstructor}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Coursework \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Coursework \arabic{#1} (continued)}{Coursework \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Coursework \arabic{#1} (continued)}{Coursework \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Coursework \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Coursework \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Coursework \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{
+    % Data Visualization
+    }
+\newcommand{\hmwkDueDate}{Friday, 3 May 2024}
+\newcommand{\hmwkClass}{Research Methods}
+\newcommand{\hmwkClassID}{COMP4037}
+\newcommand{\hmwkClassTime}{}
+\newcommand{\hmwkClassInstructor}{Prof. Robert S Laramee}
+%\newcommand{\hmwkAuthorName}{\textbf{Josh Davis} \and \textbf{Davis Josh}}
+\newcommand{\hmwkAuthorName}{\textbf{Zihe Gao}}
+
+
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClassID\\ \hmwkClass\\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ , 11:59 PM}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{P343845}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+% \maketitle
+
+\pagebreak
+
+\begin{homeworkProblem}[2]
+
+    % \textbf{Solution}\\
+    % \solution
+
+    \begin{itemize}
+        \item \textbf{Image:} Radar Chart for Environmental Impacts from different Diet Habits
+
+        % 插入图片
+        \begin{figure}[htb]
+                \centering
+                \centerline{\includegraphics[width=12.0cm]{p1.png}}
+                %  \vspace{1.5cm}
+                % \centerline{Radar Chart}\medskip
+            % \caption{Example of placing a figure with experimental results.}
+            \label{fig:res}
+        \end{figure}
+
+        \item \textbf{Visual Design Type:} Radar Chart (Spider Chart)
+        \item \textbf{Name of Tool:} Python, Matplotlib
+        \item \textbf{Diet Groups:} Vegan, Vegetarian, Fish-eaters, Low Meat-eaters, Mid Meat-eaters, High Meat-eaters
+        \item \textbf{Variables:} All 9 mean environmental variables as shown for comparison of different diet habits’ impacts on specific variables.
+        \item \textbf{Visual Mappings:} 
+        \subitem -- \textbf{Colour:} Each diet group is represented by a distinct colour on the radar chart to differentiate their environmental impact profiles.
+        \subitem -- \textbf{Shape:} The radar chart lines form a closed polygon around the central area, with vertices representing the variable categories. The shape of the polygon for each diet group represents the environmental impact profile of that diet group.
+        \subitem -- \textbf{Size:} The size of the radar chart is fixed, with the normalsized scale 0-1 for all diet groups, allowing for easy comparison of environmental impacts across diet groups.
+        \subitem -- \textbf{Labels:} Each vertex of the radar chart is labelled with the corresponding environmental variable, allowing for easy identification of the variable represented by each vertex.
+
+        \item \textbf{Unique Observation:} From this visualisation we can see this pattern, overall, across the majority of indicators, the environmental impact progressively increases from vegans, vegetarians, fish eaters, low meat eaters, medium meat eaters, to high meat eaters. However, there is an exception visible in the graph; compared to low meat eaters, fish eaters have a greater impact on the indicators of Water Scarcity and Agricultural Water Use.
+        \item \textbf{Data Preparation:} Group the data by diet habits and calculate the mean values for 1000 mc\_runs of all variables as new corresponding mean variables, then normalise the data to a common scale by subtracting the minimum and dividing by the range within each diet group. This allowed for a fair comparison of environmental impacts across different diet groups. The normalised data was then used to plot the radar chart.
+        \item \textbf{URL to source code:} \href {https://github.com/ZacharyGao/RM-CW2}{https://github.com/ZacharyGao/RM-CW2}
+
+    \end{itemize}
+
+\end{homeworkProblem}
+
+
+\end{document}
